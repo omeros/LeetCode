@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    function productExceptSelf(nums) {
+    console.log('nums==>',nums)
+    const copyArray = [...nums]
+ 
+    
+    copyArray.reverse()
+    const temp1 =  []
+    temp1.push(1)
+    temp1.push(nums[0])
+
+    const temp2 =  []
+    temp2.push(1)
+    temp2.push(copyArray[0])
+          for(let i = 1; i < nums.length; i++){
+            temp1.push(temp1[i]*nums[i])
+            temp2.push(temp2[i]*copyArray[i])
+          }
+
+   // const temp2 = [...temp1]
+    temp2.reverse();
+    temp1.pop()
+    temp2.shift()
+    const final = []
+    console.log('temp1==>',temp1)
+    console.log('temp2===>',temp2); 
+        for(let i = 0; i < temp1.length; i++){
+            final.push(temp1[i]*temp2[i])
+          }
+          console.log('final solution==>:',final);
+          
+};
+productExceptSelf([1,2,3,4,]) 
+  </script>
+</body>
+</html>
+
+<!-- const array1 = ["one", "two", "three"];
+console.log("array1:", array1);
+// Expected output: "array1:" Array ["one", "two", "three"]
+
+const reversed = array1.reverse();
+console.log("reversed:", reversed); -->
