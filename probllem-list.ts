@@ -16,9 +16,6 @@ function twoSum(nums: number[], target: number): number[] {
         return [0,0]
 };
 //**********************************************************//
-
-
-
 //********************  121. Best Time to Buy and Sell Stock:- O(n^2) **************************************//
 function maxProfit2(prices: number[]): number {
     let max  = prices[1] - prices[0];
@@ -44,8 +41,6 @@ function minIdx(numbers:number[]): number{
     return min;
 }
 //**********************************************************//
-
-
 //**************  121. Best Time to Buy and Sell Stock: -O(n)********************************************//
 function maxProfit(prices: number[]): number {
     if(prices.length==1) return 0
@@ -64,8 +59,6 @@ function maxProfit(prices: number[]): number {
     return max;
 };
 //**********************************************************//
-
-
 //******************************* Contains Duplicate ***********************//
 function containsDuplicate(nums: number[]): boolean {
     const setData = new Set();
@@ -79,7 +72,6 @@ function containsDuplicate(nums: number[]): boolean {
     return false
 };
 //**********************************************************//
-
 //*************************** Product of Array Except Self - medium ************************//
 function productExceptSelf(nums: number[]): number[] {
     const copyArray = [...nums]
