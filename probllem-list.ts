@@ -1,5 +1,5 @@
 // MY-ANSWERS:
-//************** Two Sum - O(n)********************************************//
+//************** 1.Two Sum - O(n)********************************************//
 function twoSum(nums: number[], target: number): number[] {
     const setData = new Set();
     setData.add( target - nums[0] )
@@ -59,7 +59,7 @@ function maxProfit(prices: number[]): number {
     return max;
 };
 //**********************************************************//
-//******************************* Contains Duplicate ***********************//
+//******************************* 217. Contains Duplicate ***********************//
 function containsDuplicate(nums: number[]): boolean {
     const setData = new Set();
     setData.add(nums[0] )
@@ -72,7 +72,7 @@ function containsDuplicate(nums: number[]): boolean {
     return false
 };
 //**********************************************************//
-//*************************** Product of Array Except Self - medium ************************//
+//*************************** .238 Product of Array Except Self - medium ************************//
 function productExceptSelf(nums: number[]): number[] {
     const copyArray = [...nums]
     copyArray.reverse()
@@ -179,7 +179,7 @@ function arraSum2(nums: number[], i: number, j: number): number {
     return sum;
 }
 //*****************************************************************************/
-//******************************** Palindrome Number ***************************************/
+//********************************9. Palindrome Number ***************************************/
 function isPalindrome(x: number): boolean {
     if(x<0) return false
     let strx = x + ""
