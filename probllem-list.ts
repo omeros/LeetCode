@@ -1,9 +1,4 @@
-
 // MY-ANSWERS:
-
-
-
-
 //************** Two Sum - O(n)********************************************//
 function twoSum(nums: number[], target: number): number[] {
     const setData = new Set();
