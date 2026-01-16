@@ -890,34 +890,37 @@ function innerInorderTraversal(root: TreeNode | null,arr: number[]): number[] {
  */
 
 function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+    if(!p&&!q) return true
+    if((p&&!q)||(!p&&q)) return false
     if (p.val!==q.val) {
         console.log('p.val!==q.vall')
-        return false
+         return false
     }
     if(((!p.left)&&(!p.right))&&((!q.left)&&(!q.right))) return true;
     if(p.val!==q.val){
         console.log('p.val!==q.val')
         return false;
-    }
+     }
     if(!notSameKids(p,q)){
-        console.log('notSameKids3')
-        return false;
+      console.log('notSameKids3')
+       return false;
     }
     let result = null ;
     if(p.left&&p.right)  {
         return  isSameTree(p.left,q.left)&&isSameTree(p.right,q.right)
     }else if(p.left&&!p.right){
-            return isSameTree(p.left,q.left)
+         return isSameTree(p.left,q.left)
     }else if(!p.left&&p.right){
-            return isSameTree(p.right,q.right)
+         return isSameTree(p.right,q.right)
     }
 }
 
 function notSameKids(p,q){
+     console.log('notSameKids start')
     if( ((p.left)&&(p.right)) && ((!q.left)||(!q.right))  ){
         console.log('notSameKids1')
         return false
-    }else  if( ((!p.left)&&(q.left)) || ((p.left)&&(!q.left)) || ((p.right)&&(!q.right)) || ((p.right)&&(!q.right)) ){
+    }else  if( ((!p.left)&&(q.left)) || ((p.left)&&(!q.left)) || ((p.right)&&(!q.right)) || ((!p.right)&&(q.right)) ){
         console.log('notSameKids2')
         return false
     }
