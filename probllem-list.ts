@@ -927,4 +927,40 @@ function notSameKids(p,q){
     return true
 }
 
-//*******************************************************************************************/
+//*************************************c*****************************************************/
+//************************************* 101. Symmetric Tree ****************************************************/
+
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : c)
+ *     }
+ * }
+ */
+
+function isSymmetric(root: TreeNode | null): boolean {
+    const leftNode = root.left
+    const rightNode = root.right
+    const leftVal = leftInDepth(leftNode)
+    const rightVa; = rightInDepth(rightNode)
+   // if(isLeaves(leftNode))
+    // (leftNode.val==rightNode.val) ? return true : return false;
+    if(leftVal!==rightVa) return false
+    if(leftVal==rightVa) return true
+};
+
+
+function leftInDepth(node){
+    if((node.left&&node.right)==null) return node.val
+    leftInDepth(node.left)
+}
+function rightInDepth(node){
+    if((node.left&&node.right)==null) return node.val
+    rightInDepth(node.right)
+}
