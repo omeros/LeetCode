@@ -959,7 +959,7 @@ function isSymmetric(root: TreeNode | null): boolean {
 };
 
 
-function leftInDepth(node){
+function leftInDepth(node: TreeNode){
     // if((node.left&&node.right)==null) return node.val
     let arr = [];
     if(node.left){
@@ -974,7 +974,7 @@ function leftInDepth(node){
     // node.left ? leftInDepth(node.left):( node.right ? rightInDepth(node.right): arr[].push(node.val))
     // testing
 }
-function rightInDepth(node){
+function rightInDepth(node: TreeNode){
     let arr = [];
     if(node.right){
         arr.push(rightInDepth(node.right))
