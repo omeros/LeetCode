@@ -929,7 +929,6 @@ function notSameKids(p,q){
 
 //*************************************c*****************************************************/
 //************************************* 101. Symmetric Tree ****************************************************/
-
 /**
  * Definition for a binary tree node.
  * class TreeNode {
@@ -944,47 +943,64 @@ function notSameKids(p,q){
  * }
  */
 
-
 function isSymmetric(root: TreeNode | null): boolean {
     const leftTree = root.left
     const rightTree = root.right
     const leftTreeArr = leftInDepth(leftTree)
     const rightTreeArr = rightInDepth(rightTree)
-    console.log('left Tree Arr',leftTreeArr,'right Tree Arr' ,rightTreeArr )
-    return true
-   // if(isLeaves(leftNode))
-    // (leftNode.val==rightNode.val) ? return true : return false;
-    // if(leftVal!==rightVa) return false
-    // if(leftVal==rightVa) return true
+    console.log('left Tree Arr',leftTreeArr,', right Tree Arr' ,rightTreeArr )
+    let ans = false;
+    if((Array.isArray(leftTreeArr))&&(Array.isArray(rightTreeArr))){
+        ans = sameShallow(leftTreeArr,rightTreeArr )
+    }else if(leftTreeArr===rightTreeArr){
+        ans = true
+    }
+    return ans
 };
 
 
 function leftInDepth(node: TreeNode){
+    if(!node) return
     // if((node.left&&node.right)==null) return node.val
     let arr = [];
-    if(node.left){
-        arr.push(leftInDepth(node.left))
-    }else if(node.right){
-        arr.push(rightInDepth(node.right))
-    }else {
-        arr.push(node.val)
+    if(node&&node.left){
+        arr.push(...leftInDepth(node.left))
+    }else{
+        arr.push('null')
     }
+    arr.push(node.val)
+    if(node&&node.right){   
+        arr.push(...rightInDepth(node.right))
+    }
+    // if(!node.right&&!node.left) {
+    //     arr.push(node.val)
+    // }
     return arr
 
     // node.left ? leftInDepth(node.left):( node.right ? rightInDepth(node.right): arr[].push(node.val))
     // testing
 }
 function rightInDepth(node: TreeNode){
+    if(!node) return
     let arr = [];
-    if(node.right){
-        arr.push(rightInDepth(node.right))
-    }else if(node.left){
-        arr.push(leftInDepth(node.left))
-    }else {
-        arr.push(node.val)
+    if(node &&node.right){
+        arr.push(...rightInDepth(node.right))
     }
+    else{
+        arr.push('null')
+    }
+    arr.push(node.val)
+    if(node&&node.left){    
+        arr.push(...leftInDepth(node.left))
+    }
+    // if(!node.right&&!node.left) {
+    //     arr.push(node.val)
+    // }
     return arr
     // if((node.left&&node.right)==null) return node.val
     // rightInDepth(node.right)
     // rightInDepth(node.left
 }
+
+const sameShallow = (a, b) =>
+    a.length === b.length && a.every((v, i) => Object.is(v, b[i]));
