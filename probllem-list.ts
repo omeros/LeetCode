@@ -944,23 +944,47 @@ function notSameKids(p,q){
  * }
  */
 
+
 function isSymmetric(root: TreeNode | null): boolean {
-    const leftNode = root.left
-    const rightNode = root.right
-    const leftVal = leftInDepth(leftNode)
-    const rightVa; = rightInDepth(rightNode)
+    const leftTree = root.left
+    const rightTree = root.right
+    const leftTreeArr = leftInDepth(leftTree)
+    const rightTreeArr = rightInDepth(rightTree)
+    console.log('left Tree Arr',leftTreeArr,'right Tree Arr' ,rightTreeArr )
+    return true
    // if(isLeaves(leftNode))
     // (leftNode.val==rightNode.val) ? return true : return false;
-    if(leftVal!==rightVa) return false
-    if(leftVal==rightVa) return true
+    // if(leftVal!==rightVa) return false
+    // if(leftVal==rightVa) return true
 };
 
 
 function leftInDepth(node){
-    if((node.left&&node.right)==null) return node.val
-    leftInDepth(node.left)
+    // if((node.left&&node.right)==null) return node.val
+    let arr = [];
+    if(node.left){
+        arr.push(leftInDepth(node.left))
+    }else if(node.right){
+        arr.push(rightInDepth(node.right))
+    }else {
+        arr.push(node.val)
+    }
+    return arr
+
+    // node.left ? leftInDepth(node.left):( node.right ? rightInDepth(node.right): arr[].push(node.val))
+    // testing
 }
 function rightInDepth(node){
-    if((node.left&&node.right)==null) return node.val
-    rightInDepth(node.right)
+    let arr = [];
+    if(node.right){
+        arr.push(rightInDepth(node.right))
+    }else if(node.left){
+        arr.push(leftInDepth(node.left))
+    }else {
+        arr.push(node.val)
+    }
+    return arr
+    // if((node.left&&node.right)==null) return node.val
+    // rightInDepth(node.right)
+    // rightInDepth(node.left
 }
