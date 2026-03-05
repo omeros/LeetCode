@@ -927,7 +927,7 @@ function notSameKids(p,q){
     return true
 }
 
-//*************************************c*****************************************************/
+//******************************************************************************************/
 //************************************* 101. Symmetric Tree ****************************************************/
 /**
  * Definition for a binary tree node.
@@ -1004,3 +1004,36 @@ function rightInDepth(node: TreeNode){
 
 const sameShallow = (a, b) =>
     a.length === b.length && a.every((v, i) => Object.is(v, b[i]));
+
+
+
+
+//******************************* 104. Maximum Depth of Binary Tree ***********************************************************/
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function maxDepth(root: TreeNode | null): number {
+    const ans = myMaxDepth(root)
+    return ans
+};
+function myMaxDepth(root: TreeNode | null): number{
+    if(root==null) return 0
+    const left =  myMaxDepth(root.left)
+    const right =  myMaxDepth(root.right)
+    return left > right ?  left + 1 : right + 1;
+}
+
+//******************************************************************************************/
+
+
